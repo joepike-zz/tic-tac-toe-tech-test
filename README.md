@@ -21,6 +21,9 @@ I do not want to be able to select an already occupied square
 As a player of the tic tac toe game
 I do not want to be able to select a square twice in a row
 
+As a player of the tic-tac-toe game
+I want to know whos turn it is
+
 As a player of the tic tac toe game
 I want to see the current state of the board
 
