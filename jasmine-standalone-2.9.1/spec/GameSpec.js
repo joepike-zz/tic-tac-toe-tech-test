@@ -15,7 +15,7 @@ describe("Game", function() {
       expect(game.players[1].name).toEqual("Cal");
     })
     it("should start the game with an empty board", function() {
-      expect(game.board).toEqual(["-", "-", "-", "-", "-", "-", "-", "-", "-"])
+      expect(game.board).toEqual([null,null,null,null,null,null,null,null,null])
     })
   })
 
@@ -57,6 +57,18 @@ describe("Game", function() {
     it("should know whos turn it is", function() {
       expect(game.current_player.name).toEqual("Charles");
     })
+    it("should know the game is over without a winner", function() {
+      game.selectSquare(0);
+      game.selectSquare(1);
+      game.selectSquare(2);
+      game.selectSquare(3);
+      game.selectSquare(4);
+      game.selectSquare(5);
+      game.selectSquare(6);
+      game.selectSquare(7);
+      game.selectSquare(8);
+      expect(game.gameOver()).toEqual('GAME OVER. Thanks for playing!');
+    })
   })
 
   describe("Win game", function() {
@@ -66,7 +78,6 @@ describe("Game", function() {
       game.selectSquare(1);
       game.selectSquare(4);
       game.selectSquare(2);
-      console.log(game.board);
       expect(game.player_won).toEqual(true);
     })
   })
