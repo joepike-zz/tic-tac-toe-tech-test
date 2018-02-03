@@ -71,20 +71,15 @@ describe("Game", function() {
     })
   })
 
-  describe("Win game", function() {
-    it("should notify the current player that they have won", function() {
+  describe("Winning player", function() {
+    it("should know the winning players name", function() {
       game.selectSquare(0);
       game.selectSquare(3);
       game.selectSquare(1);
       game.selectSquare(4);
       game.selectSquare(2);
-      expect(game.player_won).toEqual(true);
+      game.winning_move();
+      expect(game.winning_name()).toEqual('Charles');
     })
   })
-
-  // describe("End game", function() {
-  //   it("should end the game when all squares are filled", function() {
-  //
-  //   })
-  // })
 })

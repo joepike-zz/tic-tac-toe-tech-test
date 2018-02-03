@@ -35,7 +35,7 @@ Game.prototype.gameOver = function () {
 };
 
 Game.prototype.is_game_over = function() {
-  for(var i = 0; i < game.board.length; i++) {
+  for(var i = 0; i < this.board.length; i++) {
     if(this.board[i] == null) {
       return false;
     }
@@ -62,10 +62,12 @@ Game.prototype.winning_move = function() {
     var c = winCombos[i][2];
 
     if(this.board[a] && this.board[a] == this.board[b] && this.board[b] == this.board[c]) {
-      // return this.current_player + "wins";
-      this.player_won = true;
-      console.log(this.player_won);
+      this.winning_name();
     }
   }
+}
 
+Game.prototype.winning_name = function() {
+  this.switchPlayer();
+  return this.current_player.name;
 }
